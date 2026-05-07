@@ -1,0 +1,58 @@
+.BoardContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+header {
+  background-color: #26d1d5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.points {
+  display: flex;
+  gap: 10px;
+}
+
+.board {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(6, 120px);
+  gap: 5px;
+}
+
+.card {
+  width: 120px;
+  height: 120px;
+  background-color: transparent;
+  border-radius: 20px;
+  border: none;
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 300ms ease-in-out;
+  }
+  &__face {
+    position: absolute;
+    inset: 0;
+    background-color: #23cc13;
+    backface-visibility: hidden;
+
+    &--back {
+      transform: rotateY(180deg);
+      background-color: #F0EA6E;
+    }
+  }
+  &.is-flipped .card__inner {
+    transform: rotateY(180deg);
+  }
+}
