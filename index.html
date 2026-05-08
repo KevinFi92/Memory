@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<section id="landing-page"></section>
+<section class= "content" id="content">
 <section class="settings">
     <div class="settings-content">
         <div class="settings-selection" >
@@ -29,12 +29,12 @@
                 <h2><img src="public/assets/images/icons/chess_pawn.png">Choose player</h2>
                 <li>
                     <label>
-                        <input type="radio" class="game-option" name="player" id="Blue Player" checked> blue
+                        <input type="radio" value="blue_player" class="game-option" name="player" id="Blue Player" checked> blue
                     </label>
                 </li>
                 <li>
                     <label>
-                        <input type="radio" class="game-option" name="player" id="Green Player" > green
+                        <input type="radio" value="orange_player" class="game-option" name="player" id="Orange Player" > orange
                     </label>
                 </li>
             </ul>
@@ -67,14 +67,12 @@
                     <p id="selected-theme">Game theme</p>
                     <p id="selected-player">Blue Player</p>
                     <p id="selected-size">16 Cards</p>
-                    <button id="start-button" onclick="window.location.href='src/html/board.html'" class="btn-start">start</button>
+                    <button id="start-button"  class="btn-start">start</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section id="board">
-
 </section>
 <script type="module" src="src/index.ts"></script>
 </body>

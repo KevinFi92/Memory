@@ -1,9 +1,9 @@
-import {boardSize} from "./storage";
+import { getBoardSize, getCurrentPlayer } from "./storage";
+import { renderBoardTemp } from "./templates";
 
-renderBoard();
 
-export function renderBoard() {
-for (let i = 0; i < boardSize; i++) {
+export function renderField() {
+for (let i = 0; i < getBoardSize(); i++) {
     document.getElementById('field')!.insertAdjacentHTML('beforeend', '' +
         '           <button class="card">\n' +
         '                <div class="card__inner">\n' +
@@ -14,7 +14,14 @@ for (let i = 0; i < boardSize; i++) {
 }
 }
 
-function flipCard() {
+
+export function setPlayer() {
+    let player = document.getElementById("CurrentPlayer") as HTMLImageElement;
+    player.src = `/assets/images/themes/coding_vibes/${getCurrentPlayer()}.png`;
+}
+
+
+export function flipCard() {
     const fieldRef = document.getElementById("field") as HTMLElement;
     if (fieldRef) {
         fieldRef.addEventListener("click", e => {
@@ -24,11 +31,13 @@ function flipCard() {
             }
         })
     }
-
 }
 
 
 export function initBoard() {
+    renderBoardTemp();
+    renderField();
+    setPlayer();
     flipCard();
-
 }
+

@@ -1,6 +1,9 @@
-import {boardSize, setBoardSize} from "./storage";
+import {setBoardSize, setCurrentPlayer} from "./storage";
+import { initBoard} from "./board";
 
 
+const startButton = document.getElementById('start-button') as HTMLButtonElement;
+startButton?.addEventListener("click", initBoard)
 
 
 
@@ -12,7 +15,6 @@ gameOption.forEach(option => {
         if (SelectedOption) {
             setOption(SelectedOption);
         }
-
     })
 })
 
@@ -25,6 +27,18 @@ boardSizeRadios.forEach(radio => {
         setBoardSize(Number(radio.value));
     });
 });
+
+
+const playerRadios = document.querySelectorAll(
+    'input[name="player"]') as NodeListOf<HTMLInputElement>;
+
+playerRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+        setCurrentPlayer(String(radio.value));
+    });
+});
+
+
 
 
 function setPreview(theme: string) {
