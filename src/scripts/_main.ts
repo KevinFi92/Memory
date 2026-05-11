@@ -1,12 +1,10 @@
-import { initSettings } from "./settings";
-
 import { initLandingPage } from "./landing-page";
 
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    initSettings();
+
+document.addEventListener("DOMContentLoaded", () => {
     initLandingPage();
 });

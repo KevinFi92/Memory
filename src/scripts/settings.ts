@@ -1,44 +1,5 @@
 import {setBoardSize, setCurrentPlayer} from "./storage";
-import { initBoard} from "./board";
-
-
-const startButton = document.getElementById('start-button') as HTMLButtonElement;
-startButton?.addEventListener("click", initBoard)
-
-
-
-const gameOption = document.querySelectorAll(".game-option")
-
-gameOption.forEach(option => {
-    option.addEventListener("click", () => {
-        const SelectedOption = option.getAttribute("id");
-        if (SelectedOption) {
-            setOption(SelectedOption);
-        }
-    })
-})
-
-
-const boardSizeRadios = document.querySelectorAll(
-    'input[name="size"]') as NodeListOf<HTMLInputElement>;
-
-boardSizeRadios.forEach(radio => {
-    radio.addEventListener("change", () => {
-        setBoardSize(Number(radio.value));
-    });
-});
-
-
-const playerRadios = document.querySelectorAll(
-    'input[name="player"]') as NodeListOf<HTMLInputElement>;
-
-playerRadios.forEach(radio => {
-    radio.addEventListener("change", () => {
-        setCurrentPlayer(String(radio.value));
-    });
-});
-
-
+import {initBoard} from "./board";
 
 
 function setPreview(theme: string) {
@@ -64,7 +25,44 @@ function setOption(selectedOption: string) {
     }
 }
 
+function initRadioBtn() {
+    const boardSizeRadios = document.querySelectorAll(
+        'input[name="size"]') as NodeListOf<HTMLInputElement>;
+    boardSizeRadios.forEach(radio => {
+        radio.addEventListener("change", () => {
+            setBoardSize(Number(radio.value));
+        });
+    });
+
+    const playerRadios = document.querySelectorAll(
+        'input[name="player"]') as NodeListOf<HTMLInputElement>;
+    playerRadios.forEach(radio => {
+        radio.addEventListener("change", () => {
+            setCurrentPlayer(String(radio.value));
+        });
+    });
+
+    const gameOption = document.querySelectorAll(".game-option")
+    gameOption.forEach(option => {
+        option.addEventListener("click", () => {
+            const SelectedOption = option.getAttribute("id");
+            if (SelectedOption) {
+                setOption(SelectedOption);
+            }
+        })
+    })
+}
+
+function initButton() {
+    const startButton = document.getElementById('start-button') as HTMLButtonElement;
+    startButton?.addEventListener("click", initBoard)
+
+
+}
+
 export function initSettings() {
     setPreview("Coding Vibes theme");
     setOption("Blue Player");
+    initButton();
+    initRadioBtn()
 }

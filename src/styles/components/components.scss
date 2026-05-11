@@ -1,0 +1,33 @@
+.btn {
+  border: none;
+  width: 126px;
+  height: 53px;
+  gap: 8px;
+  padding: 14px 20px;
+  background-color: #F0EA6E;
+  font-size: 20px;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--play {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 98px;
+    width: 250px;
+    font-family: 'Red Rose', serif;
+    font-size: 40px;
+  }
+
+}
+
+.logo {
+  width: 450px;
+  height: 340px;
+  position: absolute;
+  top: 630px;
+  left: 0;
+}

@@ -1,0 +1,25 @@
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #303131;
+  color: white;
+}
+.landing-page-content{
+
+  > h1{
+    font-size: 140px;
+  }
+  > h2{
+    font-size: 48px;
+  }
+}
+.btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
