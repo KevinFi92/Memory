@@ -6,9 +6,9 @@ function setPreview(theme: string) {
     let themeImg = document.getElementById("preview-img") as HTMLImageElement;
     if (!themeImg) return;
     if (theme.includes("Foods theme")) {
-        themeImg.src = "./public/assets/images/themes/foods/preview.png";
+        themeImg.src = "./public/assets/images/themes/foods/icons/preview.png";
     } else {
-        themeImg.src = "./public/assets/images/themes/coding_vibes/preview.png";
+        themeImg.src = "./public/assets/images/themes/coding_vibes/icons/preview.png";
     }
 }
 

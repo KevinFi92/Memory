@@ -42,14 +42,16 @@ header {
     transition: all 300ms ease-in-out;
   }
   &__face {
+    width: 100%;
+    height: 100%;
     position: absolute;
     inset: 0;
-    background-color: #23cc13;
     backface-visibility: hidden;
+
 
     &--back {
       transform: rotateY(180deg);
-      background-color: #F0EA6E;
+
     }
   }
   &.is-flipped .card__inner {

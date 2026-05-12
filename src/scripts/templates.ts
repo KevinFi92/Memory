@@ -59,7 +59,7 @@ export function renderSettings() {
     <div class="overview" >
     <div>
         <div class="">
-    <img id="preview-img" class="preview-img" src="/assets/images/themes/coding_vibes/preview.png">
+    <img id="preview-img" class="preview-img" src="/assets/images/themes/coding_vibes/icons/preview.png">
         </div>
         <div class="game-settings">
     <p id="selected-theme">Game theme</p>
@@ -80,7 +80,7 @@ export function renderBoardTemp() {
     content.innerHTML = `<section class="BoardContent">
     <header>
         <div class="points"><p><img>Blue</p><p><img>Orange</p></div>
-        <div><p>Current player:<img id="CurrentPlayer" src="/assets/images/themes/coding_vibes/blue_player.png"></p></div>
+        <div><p>Current player:<img id="CurrentPlayer" src="/assets/images/themes/coding_vibes/icons/blue_player.png"></p></div>
         <button><img>Exit game</button>
     </header>
     <section id="">

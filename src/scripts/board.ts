@@ -1,14 +1,38 @@
 import { getBoardSize, getCurrentPlayer } from "./storage";
 import { renderBoardTemp } from "./templates";
 
+let cards = [
+    "angular",
+    "bootstrap",
+    "cmd",
+    "css",
+    "django",
+    "firebase",
+    "git",
+    "git_hub",
+    "html",
+    "js",
+    "node",
+    "python",
+    "react",
+    "saas",
+    "sql",
+    "ts",
+    "vector",
+    "vs_code"
+];
+
+
+
+
 
 export function renderField() {
 for (let i = 0; i < getBoardSize(); i++) {
     document.getElementById('field')!.insertAdjacentHTML('beforeend', '' +
         '           <button class="card">\n' +
         '                <div class="card__inner">\n' +
-        '                    <div class="card__face"></div>\n' +
-        '                    <div class="card__face card__face--back"></div>\n' +
+        '                    <img src="/assets/images/themes/coding_vibes/cards/back_card.png" class="card__face">\n' +
+        '                    <img src="/assets/images/themes/coding_vibes/cards/angular_card.png" class="card__face card__face--back">\n' +
         '                </div>\n' +
         '            </button>')
 }
@@ -17,7 +41,7 @@ for (let i = 0; i < getBoardSize(); i++) {
 
 export function setPlayer() {
     let player = document.getElementById("CurrentPlayer") as HTMLImageElement;
-    player.src = `/assets/images/themes/coding_vibes/${getCurrentPlayer()}.png`;
+    player.src = `/assets/images/themes/coding_vibes/icons/${getCurrentPlayer()}.png`;
 }
 
 
