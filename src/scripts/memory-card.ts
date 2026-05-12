@@ -8,7 +8,12 @@ export class MemoryCard {
         this.imageName = imageName;
         this.flipped = false;
         this.matched = false;
+        this.setImageSrc(imageName);
 
+    }
+
+    setImageSrc(imageName: string) {
+        return this.imageName;
     }
 
     Flip() {
@@ -19,12 +24,15 @@ export class MemoryCard {
         this.flipped = false;
     }
 
+    checkMatch(card: MemoryCard) {
+        return this.imageName === card.imageName;
+    }
+
     Match() {
+        if (!this.matched) return;
         this.matched = true;
     }
 
-    noMatch() {
-        this.matched = false;
-    }
+
 }
 
