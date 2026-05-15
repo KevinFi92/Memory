@@ -1,4 +1,4 @@
-import {setBoardSize, setCurrentPlayer} from "./storage";
+import {setBoardSize, setFirstPlayer} from "./storage";
 import {initBoard} from "./board";
 
 
@@ -38,7 +38,7 @@ function initRadioBtn() {
         'input[name="player"]') as NodeListOf<HTMLInputElement>;
     playerRadios.forEach(radio => {
         radio.addEventListener("change", () => {
-            setCurrentPlayer(String(radio.value));
+            setFirstPlayer(String(radio.value));
         });
     });
 

@@ -1,4 +1,4 @@
-import {getBoardSize, getCurrentPlayer} from "./storage";
+import {getBoardSize, getCardsFlipped, getCurrentPlayer} from "./storage";
 import {renderBoardTemp, renderCardTemp} from "./templates";
 import {MemoryCard} from "./memory-card";
 
@@ -39,7 +39,7 @@ function shuffle<T>(shuffeldCards: T[]): T[] {
 export function renderField() {
     let shuffledCards = randomizeCards();
     for (let i = 0; i < getBoardSize(); i++) {
-        const card = new MemoryCard(shuffledCards[i]);
+        const card = new MemoryCard(shuffledCards[i], i);
         document.getElementById('field')!.appendChild(card.button);
     }
 }
@@ -51,28 +51,18 @@ export function setPlayer() {
 }
 
 
-export function flipCard() {
-    const fieldRef = document.getElementById("field") as HTMLElement;
-    if (fieldRef) {
-        fieldRef.addEventListener("click", e => {
-            const card = (e.target as HTMLElement).closest(".card") as HTMLButtonElement;
-            if (card) {
-                card.classList.toggle("is-flipped");
-            }
-        })
-    }
-}
+
 
 
 export function initBoard() {
     renderBoardTemp();
     renderField();
     setPlayer();
-    flipCard();
+
 }
 
 
-// gamelogic = Card1 wird geflipped, card2 wird geflipped, card1 und card2 werden gematched
-// bei Match currentPlayer bekommt einen Punkt Karten bleiben offen
-// bei missmatch currentPlayer wird gewechselt und Karten wieder geflipped
-// sind alle Karten gematched dann Gameover => winning screen öffnet sich
+// gamelogic = Card1 wird geflippt, card2 wird geflippt, card1 und card2 werden gematcht.
+// Bei Match currentPlayer bekommt ein Punkt. Karten bleiben offen.
+// Bei Missmatch currentPlayer wird gewechselt und Karten wieder geflippt.
+// Sind alle Karten gematched, dann Gameserver => winning screen öffnet sich.
