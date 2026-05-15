@@ -1,4 +1,7 @@
+import { setIsFlipped  } from "./storage";
+
 export class MemoryCard {
+
 
     imageName: string;
     flipped: boolean;
@@ -8,13 +11,9 @@ export class MemoryCard {
         this.imageName = imageName;
         this.flipped = false;
         this.matched = false;
-        this.setImageSrc(imageName);
 
     }
 
-    setImageSrc(imageName: string) {
-        return this.imageName;
-    }
 
     Flip() {
         this.flipped = true;

@@ -1,4 +1,8 @@
+import { MemoryCard } from "./memory-card";
+
+
 let content = document.getElementById('content')!;
+
 
 export function renderSettings() {
 
@@ -75,7 +79,6 @@ export function renderSettings() {
 
 
 export function renderBoardTemp() {
-
     content.innerHTML = '';
     content.innerHTML = `<section class="BoardContent">
     <header>
@@ -89,6 +92,14 @@ export function renderBoardTemp() {
         </div>
     </section>
 </section>`
+}
+
+
+export function renderCardTemp(card: MemoryCard) {
+  return `<div class="card__inner">
+    <img class="card__face"  src="/assets/images/themes/coding_vibes/cards/back_card.png">
+    <img class="card__face card__face--back" src="/assets/images/themes/coding_vibes/cards/${card.imageName}_card.png">
+        </div>`
 }
 
 

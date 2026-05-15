@@ -1,5 +1,6 @@
 import { getBoardSize, getCurrentPlayer } from "./storage";
-import { renderBoardTemp } from "./templates";
+import {renderBoardTemp, renderCardTemp} from "./templates";
+import { MemoryCard } from "./memory-card";
 
 let cards = [
     "angular",
@@ -23,18 +24,29 @@ let cards = [
 ];
 
 
+function randomizeCards(){
+const pairs = getBoardSize()/2;
+const selectCards = shuffle([...cards]).slice(0, pairs);
 
+return shuffle([...selectCards, ...selectCards])
+}
+
+function shuffle<T>(shuffeldCards: T[]): T[]{
+    return shuffeldCards.sort(() => Math.random() - 0.5);
+}
+
+function createCardElement(card: MemoryCard): HTMLButtonElement {
+    const button = document.createElement("button");
+    button.classList.add("card");
+    button.innerHTML = renderCardTemp(card);
+    return button;
+}
 
 
 export function renderField() {
+   let shuffeldCards = randomizeCards();
 for (let i = 0; i < getBoardSize(); i++) {
-    document.getElementById('field')!.insertAdjacentHTML('beforeend', '' +
-        '           <button class="card">\n' +
-        '                <div class="card__inner">\n' +
-        '                    <img src="/assets/images/themes/coding_vibes/cards/back_card.png" class="card__face">\n' +
-        '                    <img src="/assets/images/themes/coding_vibes/cards/angular_card.png" class="card__face card__face--back">\n' +
-        '                </div>\n' +
-        '            </button>')
+    document.getElementById('field')!.innerHTML += createCardElement(new MemoryCard(shuffeldCards[i])).outerHTML;
 }
 }
 
@@ -65,3 +77,9 @@ export function initBoard() {
     flipCard();
 }
 
+
+// Spielfeld wird mit doppelten Karten gerendert!
+// gamelogic = Card1 wird geflipped, card2 wird geflipped, card1 und card2 werden gematched
+// bei Match currentPlayer bekommt einen Punkt Karten bleiben offen
+// bei missmatch currentPlayer wird gewechselt und Karten wieder geflipped
+// sind alle Karten gematched dann Gameover => winning screen öffnet sich

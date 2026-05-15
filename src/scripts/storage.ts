@@ -1,6 +1,8 @@
 let boardSize : number = 16;
 let currentPlayer : string = "blue_player";
 let theme : string = "Coding Vibes theme";
+let isFlipped :[boolean, boolean] = [false, false];
+let FlippedCards :number = 0;
 
 
 export function setBoardSize(size : number) {
@@ -20,4 +22,8 @@ export function setCurrentPlayer(player : string) {
 
 export function getCurrentPlayer() {
     return currentPlayer;
+}
+
+export function setIsFlipped(index: number, value: boolean) {
+    isFlipped[index] = value;
 }
