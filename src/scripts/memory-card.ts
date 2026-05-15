@@ -13,6 +13,9 @@ export class MemoryCard {
         this.imageName = imageName;
         this.flipped = false;
         this.matched = false;
+        this.button = document.createElement("button");
+        this.button.classList.add("card");
+        this.button.innerHTML = renderCardTemp(this);
         this.button.addEventListener("click", () => {
             this.flip();
         })

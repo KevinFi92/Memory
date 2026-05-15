@@ -35,18 +35,12 @@ function shuffle<T>(shuffeldCards: T[]): T[] {
     return shuffeldCards.sort(() => Math.random() - 0.5);
 }
 
-function createCardElement(card: MemoryCard): HTMLButtonElement {
-    const button = document.createElement("button");
-    button.classList.add("card");
-    button.innerHTML = renderCardTemp(card);
-    return button;
-}
-
 
 export function renderField() {
-    let shuffeldCards = randomizeCards();
+    let shuffledCards = randomizeCards();
     for (let i = 0; i < getBoardSize(); i++) {
-        document.getElementById('field')!.appendChild(createCardElement(new MemoryCard(shuffeldCards[i])));
+        const card = new MemoryCard(shuffledCards[i]);
+        document.getElementById('field')!.appendChild(card.button);
     }
 }
 

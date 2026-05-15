@@ -95,7 +95,7 @@ export function renderBoardTemp() {
 }
 
 
-export function renderCardTemp(card: MemoryCard) {
+export function renderCardTemp(card:MemoryCard) {
   return `<div class="card__inner">
     <img class="card__face"  src="/assets/images/themes/coding_vibes/cards/back_card.png">
     <img class="card__face card__face--back" src="/assets/images/themes/coding_vibes/cards/${card.imageName}_card.png">
