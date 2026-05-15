@@ -1,4 +1,5 @@
 import { setIsFlipped  } from "./storage";
+import { renderCardTemp } from "./templates";
 
 export class MemoryCard {
 
@@ -6,19 +7,24 @@ export class MemoryCard {
     imageName: string;
     flipped: boolean;
     matched: boolean;
+    button: HTMLButtonElement = document.getElementById("card") as HTMLButtonElement;
 
     constructor(imageName: string) {
         this.imageName = imageName;
         this.flipped = false;
         this.matched = false;
-
+        this.button.addEventListener("click", () => {
+            this.flip();
+        })
     }
 
 
-    Flip() {
+
+    flip() {
         this.flipped = true;
+        console.log("ich wurde geflipped")
     }
-    UnFlip() {
+    unFlip() {
         if (this.matched) return;
         this.flipped = false;
     }
@@ -27,10 +33,11 @@ export class MemoryCard {
         return this.imageName === card.imageName;
     }
 
-    Match() {
+    match() {
         if (!this.matched) return;
         this.matched = true;
     }
+
 
 
 }
