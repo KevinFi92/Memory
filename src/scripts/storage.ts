@@ -11,7 +11,6 @@ let bluePoints : number = 0;
 let orangePoints : number = 0;
 
 
-
 export function setBoardSize(size : number) {
     boardSize = size;
 }
@@ -31,6 +30,7 @@ export function getCurrentPlayer() {
     return currentPlayer;
 }
 
+
 export function setCurrentPlayer(player: string) {
     currentPlayer = player;
 }
@@ -39,6 +39,7 @@ export function setCurrentPlayer(player: string) {
 export function setCardsFlipped(){
     cardsFlipped++;
 }
+
 
 export function addCardsMatched(){
     cardsMatched++;
@@ -60,10 +61,8 @@ export function resetCardsFlipped(){
 }
 
 
-export function setFlippedCards(cardName: MemoryCard)
-{
+export function setFlippedCards(cardName: MemoryCard) {
   flippedCards.push(cardName);
-
 }
 
 
@@ -71,11 +70,10 @@ export function getFlippedCards(){
     return flippedCards;
 }
 
+
 export function resetFlippedCards(){
     flippedCards = [];
 }
-
-export function getFirstPlayer() {return firstPlayer}
 
 
 export function setPoints(player: string){

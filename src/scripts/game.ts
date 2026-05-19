@@ -24,6 +24,7 @@ function updateCurrentPlayer() {
 
 }
 
+
 function togglePlayer() {
     if (getCurrentPlayer() === "blue_player") {
         setCurrentPlayer("orange_player");
@@ -31,6 +32,7 @@ function togglePlayer() {
         setCurrentPlayer("blue_player");
     }
 }
+
 
 function updatePoints() {
     let bluePoints = document.getElementById("bluePoints") as HTMLParagraphElement;
@@ -45,6 +47,7 @@ function updatePoints() {
 function checkGameOver() {
     return getCardsMatched() === getBoardSize() / 2;
 }
+
 
 function checkMatch() {
     let flippedCards = getFlippedCards();
@@ -70,14 +73,12 @@ function checkMatch() {
     } else return
 }
 
+
 export function gameLogic() {
     setOnClick();
 }
 
 
-//Was muss das Game wissen und welche Infos rausgeben?
-
-//Wann wurden alle Karten gematched? Wer hat gewonnen?
 
 
 
