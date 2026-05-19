@@ -78,7 +78,7 @@ export function gameLogic() {
     setOnClick();
 }
 
-
+// Sind alle Karten gematched, dann Gameover → winning screen öffnet sich.
 
 
 

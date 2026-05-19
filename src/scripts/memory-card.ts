@@ -2,8 +2,6 @@ import { getCardsFlipped, setCardsFlipped, setFlippedCards } from "./storage";
 import { renderCardTemp } from "./templates";
 
 export class MemoryCard {
-
-
     imageName: string;
     id: number;
     flipped: boolean;
@@ -27,11 +25,13 @@ export class MemoryCard {
         })
     }
 
+
     flipCardAnimation() {
         this.button.classList.add("is-flipped");
         this.flipped = true;
 
     }
+
 
     flip() {
         if (getCardsFlipped() === 2) return;
@@ -42,21 +42,11 @@ export class MemoryCard {
         }
     }
 
+
     unFlip() {
         this.flipped = false;
         this.button.classList.remove("is-flipped");
 
     }
-
-    checkMatch(card: MemoryCard) {
-        return this.imageName === card.imageName;
-    }
-
-    match() {
-
-    }
-
-
-
 }
 

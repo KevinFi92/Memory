@@ -33,6 +33,7 @@ function randomizeCards() {
     return shuffle([...selectCards, ...selectCards])
 }
 
+
 function shuffle<T>(shuffeldCards: T[]): T[] {
     return shuffeldCards.sort(() => Math.random() - 0.5);
 }
@@ -61,7 +62,4 @@ export function initBoard() {
 }
 
 
-// gamelogic = Card1 wird geflippt, card2 wird geflippt, card1 und card2 werden gematcht.
-// Bei Match currentPlayer bekommt einen Punkt. Karten bleiben offen.
-// Bei Missmatch currentPlayer wird gewechselt und Karten wieder geflippt.
-// Sind alle Karten gematched, dann Gameserver → winning screen öffnet sich.
+

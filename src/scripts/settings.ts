@@ -12,6 +12,7 @@ function setPreview(theme: string) {
     }
 }
 
+
 function setOption(selectedOption: string) {
     if (selectedOption.includes("theme")) {
         document.getElementById("selected-theme")!.innerText = `${selectedOption}`;
@@ -24,6 +25,7 @@ function setOption(selectedOption: string) {
         document.getElementById("selected-size")!.innerText = `${selectedOption}`;
     }
 }
+
 
 function initRadioBtn() {
     const boardSizeRadios = document.querySelectorAll(
@@ -53,12 +55,14 @@ function initRadioBtn() {
     })
 }
 
+
 function initButton() {
     const startButton = document.getElementById('start-button') as HTMLButtonElement;
     startButton?.addEventListener("click", initBoard)
 
 
 }
+
 
 export function initSettings() {
     setPreview("Coding Vibes theme");
