@@ -1,6 +1,6 @@
 import {
     getCardsFlipped, getFlippedCards, getCurrentPlayer, setPoints,
-    resetCardsFlipped, resetFlippedCards, getPoints, setCurrentPlayer
+    resetCardsFlipped, resetFlippedCards, getPoints, setCurrentPlayer, addCardsMatched, getCardsMatched, getBoardSize
 } from "./storage"
 
 
@@ -9,7 +9,6 @@ function setOnClick() {
     cards.forEach(card => {
         card.addEventListener("click", () => {
             checkMatch();
-
         })
     })
 }
@@ -43,26 +42,30 @@ function updatePoints() {
 }
 
 
+function checkGameOver() {
+    return getCardsMatched() === getBoardSize() / 2;
+}
+
 function checkMatch() {
     let flippedCards = getFlippedCards();
     let cardsFlipped = getCardsFlipped();
     let currentPlayer = getCurrentPlayer();
-    console.log(currentPlayer)
     if (cardsFlipped == 2) {
         if (flippedCards[0].imageName === flippedCards[1].imageName) {
             setPoints(currentPlayer);
             resetCardsFlipped();
             resetFlippedCards()
             updatePoints()
-
+            addCardsMatched()
+            checkGameOver()
         } else {
             setTimeout(() => {
                 flippedCards.forEach(card => card.unFlip());
             }, 1000)
             resetCardsFlipped();
             resetFlippedCards();
-            togglePlayer()
-            updateCurrentPlayer()
+            togglePlayer();
+            updateCurrentPlayer();
         }
     } else return
 }
@@ -73,7 +76,7 @@ export function gameLogic() {
 
 
 //Was muss das Game wissen und welche Infos rausgeben?
-//Welcher Spieler ist dran
+
 //Wann wurden alle Karten gematched? Wer hat gewonnen?
 
 

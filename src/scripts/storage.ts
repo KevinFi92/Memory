@@ -6,6 +6,7 @@ let currentPlayer : string = firstPlayer;
 let theme : string = "Coding Vibes theme";
 let flippedCards:MemoryCard[] = [];
 let cardsFlipped :number = 0;
+let cardsMatched : number = 0;
 let bluePoints : number = 0;
 let orangePoints : number = 0;
 
@@ -37,8 +38,17 @@ export function setCurrentPlayer(player: string) {
 
 export function setCardsFlipped(){
     cardsFlipped++;
-    console.log(cardsFlipped, flippedCards)
 }
+
+export function addCardsMatched(){
+    cardsMatched++;
+}
+
+
+export function getCardsMatched(){
+    return cardsMatched;
+}
+
 
 export function getCardsFlipped(){
     return cardsFlipped;
