@@ -37,14 +37,15 @@ export class MemoryCard {
         if (getCardsFlipped() === 2) return;
         else if (!this.flipped) {
             this.flipCardAnimation()
-            setFlippedCards(this.imageName);
+            setFlippedCards(this);
             setCardsFlipped();
         }
     }
 
     unFlip() {
-        if (this.matched) return;
         this.flipped = false;
+        this.button.classList.remove("is-flipped");
+
     }
 
     checkMatch(card: MemoryCard) {
@@ -52,8 +53,7 @@ export class MemoryCard {
     }
 
     match() {
-        if (!this.matched) return;
-        this.matched = true;
+
     }
 
 

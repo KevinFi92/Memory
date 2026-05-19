@@ -78,11 +78,11 @@ export function renderSettings() {
 }
 
 
-export function renderBoardTemp() {
+export function renderBoardTemp(points:number[]) {
     content.innerHTML = '';
     content.innerHTML = `<section class="BoardContent">
     <header>
-        <div class="points"><p><img>Blue</p><p><img>Orange</p></div>
+        <div class="points"><p><img>Blue:<p id="bluePoints">${points[0]}</p></p><p><img>Orange:<p id="orangePoints">${points[1]}</p></p></div>
         <div><p>Current player:<img id="CurrentPlayer" src="/assets/images/themes/coding_vibes/icons/blue_player.png"></p></div>
         <button><img>Exit game</button>
     </header>

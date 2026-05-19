@@ -1,6 +1,7 @@
-import {getBoardSize, getCardsFlipped, getCurrentPlayer} from "./storage";
+import {getBoardSize, getCardsFlipped, getCurrentPlayer, getPoints} from "./storage";
 import {renderBoardTemp, renderCardTemp} from "./templates";
 import {MemoryCard} from "./memory-card";
+import {gameLogic} from "./game";
 
 let cards = [
     "angular",
@@ -22,6 +23,7 @@ let cards = [
     "vector",
     "vs_code"
 ];
+let points = getPoints();
 
 
 function randomizeCards() {
@@ -51,18 +53,15 @@ export function setPlayer() {
 }
 
 
-
-
-
 export function initBoard() {
-    renderBoardTemp();
+    renderBoardTemp(points);
     renderField();
     setPlayer();
-
+    gameLogic();
 }
 
 
 // gamelogic = Card1 wird geflippt, card2 wird geflippt, card1 und card2 werden gematcht.
-// Bei Match currentPlayer bekommt ein Punkt. Karten bleiben offen.
+// Bei Match currentPlayer bekommt einen Punkt. Karten bleiben offen.
 // Bei Missmatch currentPlayer wird gewechselt und Karten wieder geflippt.
-// Sind alle Karten gematched, dann Gameserver => winning screen öffnet sich.
+// Sind alle Karten gematched, dann Gameserver → winning screen öffnet sich.

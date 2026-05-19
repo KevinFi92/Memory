@@ -1,9 +1,13 @@
+import {MemoryCard} from "./memory-card";
+
 let boardSize : number = 16;
 let firstPlayer : string = "blue_player";
-let currentPlayer : string ="";
+let currentPlayer : string = firstPlayer;
 let theme : string = "Coding Vibes theme";
-let flippedCards:string[] = [];
+let flippedCards:MemoryCard[] = [];
 let cardsFlipped :number = 0;
+let bluePoints : number = 0;
+let orangePoints : number = 0;
 
 
 
@@ -23,7 +27,11 @@ export function setFirstPlayer(player : string) {
 
 
 export function getCurrentPlayer() {
-    return firstPlayer;
+    return currentPlayer;
+}
+
+export function setCurrentPlayer(player: string) {
+    currentPlayer = player;
 }
 
 
@@ -37,7 +45,12 @@ export function getCardsFlipped(){
 }
 
 
-export function setFlippedCards(cardName:string)
+export function resetCardsFlipped(){
+    cardsFlipped = 0;
+}
+
+
+export function setFlippedCards(cardName: MemoryCard)
 {
   flippedCards.push(cardName);
 
@@ -48,6 +61,23 @@ export function getFlippedCards(){
     return flippedCards;
 }
 
-
+export function resetFlippedCards(){
+    flippedCards = [];
+}
 
 export function getFirstPlayer() {return firstPlayer}
+
+
+export function setPoints(player: string){
+    if (player === "blue_player") {
+        bluePoints++;
+    }
+    if (player === "orange_player") {
+        orangePoints++;
+    }
+}
+
+
+export function getPoints() {
+    return [bluePoints, orangePoints];
+}
